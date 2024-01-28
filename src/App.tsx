@@ -1,8 +1,13 @@
+import { GlobalStyle, Container } from '../GlobalStyles.ts'
+
 const App = () => {
   return (
-    <div>
-      teste
-    </div>
+    <>
+      <GlobalStyle />
+      <Container>
+        oi
+      </Container>
+    </>
   )
 }
 
