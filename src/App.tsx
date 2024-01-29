@@ -1,11 +1,12 @@
-import { GlobalStyle, Container } from '../GlobalStyles.ts'
+import { GlobalStyle, Container } from '../GlobalStyles.ts';
+import MainRoutes from './routes/MainRoute.tsx';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <Container>
-        oi
+        <MainRoutes/>
       </Container>
     </>
   )
