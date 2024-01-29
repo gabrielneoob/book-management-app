@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const InputBase = styled.input`
   height: -webkit-fill-available;
   outline: none;
-  border: none;
   padding: 0.7rem;
 `
 

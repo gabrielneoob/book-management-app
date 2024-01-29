@@ -12,7 +12,6 @@ const Input = ({
   value,
   name,
   placeholder,
-  ...rest
 }: InputTypes):JSX.Element => {
   const styles: React.CSSProperties = { ...inputStyle };
 
@@ -27,7 +26,6 @@ const Input = ({
         value={value}
         name={name}
         style={styles}
-        {...rest}
       />
     </Box>
   )
