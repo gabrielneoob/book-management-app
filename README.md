@@ -4,6 +4,14 @@ O objetivo principal do desafio é desenvolver um **CRUD** de livros e autores.
 
 **A ideia não é que você use as melhores e maiores tecnologias do mercado, mas sim que você consiga mostrar o seu melhor fazendo o básico de maneira bem feita.**
 
+## Como rodar o projeto:
+
+1. Clonar o repositório
+
+2. npm install
+
+3. npm run dev
+
 ## Modelos
 
 ### Livro
