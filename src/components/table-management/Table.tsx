@@ -1,14 +1,14 @@
-import { Table, Box, IconButton, Text } from '@radix-ui/themes';
+import { Table, Box, IconButton, Text, Separator } from '@radix-ui/themes';
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table';
 import { DATA } from './mock/data';
 import { ReactNode, memo, useState } from 'react';
 import { CaretSortIcon } from '@radix-ui/react-icons';
-import { ColumnsType } from './types';
+import { AuthorType, BookType, ColumnsType } from './types';
 
 
 
-const TableManagement = ({ columns }: { columns: ColumnsType[] }) => {
-  const [data, setData] = useState(DATA);
+const TableManagement = ({ columns, data }: { columns: ColumnsType[], data: BookType[] & AuthorType[] }) => {
+  // const [data, setData] = useState(DATA);
 
   const table = useReactTable({
     data: data,
