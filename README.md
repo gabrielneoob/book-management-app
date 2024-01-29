@@ -12,6 +12,17 @@ O objetivo principal do desafio é desenvolver um **CRUD** de livros e autores.
 
 3. npm run dev
 
+## Ferramentas utilizadas
+ 
+- ReactJS
+- typeScript
+- Context API
+- css in js (Styled Cmponents)
+- TanStack Table
+- React Router Dom
+- React Hook Form 
+- Radix UI
+
 ## Modelos
 
 ### Livro
