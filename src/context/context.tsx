@@ -1,25 +1,45 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { BookTypes } from "../types/book.types";
 import { v4 as uuid } from 'uuid'
+import { AuthorTypes } from "../types/author.types";
+import { authorsDataInitial, booksDataInitial } from "../components/table-management/mock/data";
+import { ContextProps } from "../types/Context.types";
 
-export type ContextProps = {
+export const Context = createContext<ContextProps>({
   bookData: {
-    books: BookTypes[];
-    createNewBook: (name: string, authorId: string, pages: number) => void;
-    deleteBook: (id: string) => void;
-  }
-}
-
-const Context = createContext<ContextProps | null>(null);
-
+    books: [],
+    createNewBook: () => {},
+    deleteBook: () => {},
+    setBooks: () => {}
+  },
+  authorData: {
+    authors: [],
+    createNewAuthor: () => {},
+    deleteAuthor: () => {}
+  },
+});
 
 export const ContextProvider = ({ children }: { children: ReactNode}) => {
-  const [books, setBooks] = useState<BookTypes[]>([{
-    id: uuid(),
-    author_id: 'dsadsa',
-    name: 'Rei Arthur',
-    pages: 50
-  }]);
+  const [books, setBooks] = useState<BookTypes[]>(localStorage.getItem("BOOKS") ? JSON.parse(localStorage.getItem("BOOKS") as string) : booksDataInitial);
+
+  const [authors, setAuthors] = useState<AuthorTypes[]>(localStorage.getItem("AUTHORS") ? JSON.parse(localStorage.getItem("AUTHORS") as string) : authorsDataInitial);
+
+  useEffect(() => {
+    const itemsBooks = JSON.parse(localStorage.getItem("BOOKS") as string);
+    if(itemsBooks) setBooks(itemsBooks);
+
+    const itemsAuthors = JSON.parse(localStorage.getItem("AUTHORS") as string);
+    if(itemsAuthors) setAuthors(itemsAuthors);
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem("BOOKS", JSON.stringify(books))
+  }, [books]);
+
+  useEffect(() => {
+    localStorage.setItem("AUTHORS", JSON.stringify(authors))
+  }, [authors]);
+
 
   const createNewBook = (name: string, authorId: string, pages: number) => {
     setBooks((previous) => {
@@ -40,13 +60,36 @@ export const ContextProvider = ({ children }: { children: ReactNode}) => {
     setBooks(data)
   }
 
+  const createNewAuthor = (name: string, email: string) => {
+    setAuthors((previous) => {
+      return [
+        ...previous,
+        {
+          name,
+          id: String(previous.length),
+          email
+        }
+      ]
+    })
+  }
+
+  const deleteAuthor = (id: string) => {
+    const data = authors.filter((author) => author.id !== id);
+    setAuthors(data)
+  }
 
   return (
     <Context.Provider value={{
       bookData:{
         books,
         createNewBook,
-        deleteBook
+        deleteBook,
+        setBooks 
+      },
+      authorData: {
+        authors,
+        createNewAuthor,
+        deleteAuthor
       }
     }}>{ children }</Context.Provider>
   )
