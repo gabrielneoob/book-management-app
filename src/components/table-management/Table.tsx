@@ -1,14 +1,12 @@
-import { Table, Box, IconButton, Text, Separator } from '@radix-ui/themes';
+import { Table, Box, IconButton, Text } from '@radix-ui/themes';
 import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable } from '@tanstack/react-table';
-import { DATA } from './mock/data';
-import { ReactNode, memo, useState } from 'react';
+import { ReactNode, memo } from 'react';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import { AuthorType, BookType, ColumnsType } from './types';
 
 
 
-const TableManagement = ({ columns, data }: { columns: ColumnsType[], data: BookType[] & AuthorType[] }) => {
-  // const [data, setData] = useState(DATA);
+const TableManagement = ({ columns, data }: { columns: ColumnsType[], data: any }) => {
 
   const table = useReactTable({
     data: data,
@@ -16,7 +14,6 @@ const TableManagement = ({ columns, data }: { columns: ColumnsType[], data: Book
     getCoreRowModel:getCoreRowModel(),
     getSortedRowModel: getSortedRowModel()
   })
-  console.log(table.getRowModel());
   
   return (
     <Box style={{backgroundColor:"var(--primal-color)"}}> 

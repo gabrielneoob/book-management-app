@@ -1,33 +1,53 @@
-import { Flex, Text } from "@radix-ui/themes";
-import { DataTableType } from "../../../types/dataTable.types";
-import { EyeOpenIcon, TrashIcon } from "@radix-ui/react-icons";
-import useBooks from "../../../hooks/useBooks";
+import { v4 } from "uuid";
 
-
-export const DATA:DataTableType[] = [
+export const booksDataInitial = [
   {
-    book: "Rei Arthur",
-    author: "Arthur",
-    pages: 10
-  },
-  {
-    book: "Homem Arthur",
-    author: "Ber",
-    pages: 50,
-  },
-  {
-    book: "Pequeno Príncipe",
-    author: "Manuela",
-    pages: 100
-  },
-  {
-    book: "Teste",
-    author: "Lucas",
-    pages: 200
-  },
-  {
-    book: "Grande Guerra",
-    author: "Carlos",
+    author_id: "Gabriel",
+    id: v4(),
+    name: "Grande Guerra",
     pages: 500
   },
+  {
+    author_id: "Pedro",
+    id: v4(),
+    name: "Pequeno Príncipe",
+    pages: 123
+  },
+  {
+    author_id: "Maria",
+    id: v4(),
+    name: "Maria mae de jesus",
+    pages: 234
+  },
+  {
+    author_id: "Carlos",
+    id: v4(),
+    name: "Grande Guerra Revanche",
+    pages: 500
+  }, 
+]
+
+export const authorsDataInitial = [
+  {
+    id: 0,
+    name: "Gabriel",
+    email: "gabrielneoob@gmail.com"
+   },
+  {
+    id: 1,
+    name: "Pedro",
+    email: "pedro@gmail.com"
+
+   },
+  {
+    id: 2,
+    name: "Carlos",
+    email: "carlos@outlook.com"
+
+   },
+  {
+    id: 3,
+    name: "Maria",
+    email: ""
+  }, 
 ]
