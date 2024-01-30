@@ -19,9 +19,11 @@ const Alert = ({
           </Button>
         </AlertDialog.Trigger>
         <AlertDialog.Content style={{ maxWidth: 450 }}>
-          <AlertDialog.Title>Deletar Livro</AlertDialog.Title>
+          <AlertDialog.Title>Deletar {
+             deleteAuthor ? "Author" : "Livro"
+            }</AlertDialog.Title>
           <AlertDialog.Description size="2">
-            Você tem certeza? Excluir um Autor removera todos os livros relacionados a ele.
+            {deleteAuthor ? "Você tem certeza? Excluir um Autor removera todos os livros relacionados a ele." : "Você tem certeza em exlcuir o livro?"}
           </AlertDialog.Description>
 
           <Flex gap="3" mt="4" justify="end">
