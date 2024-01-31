@@ -4,15 +4,35 @@ O objetivo principal do desafio é desenvolver um **CRUD** de livros e autores.
 
 **A ideia não é que você use as melhores e maiores tecnologias do mercado, mas sim que você consiga mostrar o seu melhor fazendo o básico de maneira bem feita.**
 
-## Como rodar o projeto:
+## Como usar
 
-1. Clonar o repositório
+Faça um clone deste repositório:
 
-2. npm install
+```sh
+  $ git clone https://github.com/gabrielneoob/book-management-app.git
+```
 
-3. npm run dev
+Instale as dependências:
 
-## Ferramentas utilizadas
+```sh
+  # com npm
+  $ npm install
+
+  # com yarn
+  $ yarn install
+```
+
+Inicie o projeto com o comando:
+
+```sh
+  # com npm
+  $ npm run dev
+
+  # com yarn
+  $ yarn run dev
+```
+
+## Tecnologias utilizadas
  
 - ReactJS
 - typeScript
